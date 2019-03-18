@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Psychic Game</title>
+
+    <link rel="stylesheet" href="assets/css/reset.css">
+    <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+<h1><strong>The Psychic Game</strong></h1>
+<p id="direction_text">Guess what letter I'm thinking of</p>
+<p id="win_text"></p>
+<p id="lose_text"></p>
+<p id="guess_left"></p>
+<p id="guess_sofar"></p>    
+
+
+
+<script>
+    var alph = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"];
+    var alphGuess = [];
+
+    var win = 0;
+    var lose = 0;
+    var left = 9;
+
+
+
+    var directionText = document.getElementById("direction_text");
+    var winText = document.getElementById("win_text");
+    var loseText = document.getElementById("lose_text");
+    var guessLeft = document.getElementById("guess_left");
+    var guessSoFar = document.getElementById("guess_sofar");
+
+    
+
+    document.onkeyup = function (event) {
+
+        var userGuess = event.key;
+        
+        alphGuess.push(" " + userGuess + " ");
+
+        var compGuess = alph[Math.floor(Math.random() * alph.length)];
+
+
+        if (userGuess === compGuess) {
+            win++;
+        } if (userGuess !== compGuess) {
+            left--;
+        } if (left<=0) {
+             left = 9; lose++;
+        } 
+
+
+
+    directionText = "";
+
+
+    winText.textContent = "Wins: " + win;
+    loseText.textContent = "Losses: " + lose;
+    guessLeft.textContent = "Guesses Left: " + left;
+    guessSoFar.textContent = "Your Guesses so far: " + alphGuess;
+
+
+
+
+    console.log(userGuess);
+        console.log(compGuess);
+        console.log("-----------------");
+        console.log(win);
+        console.log(lose);
+        console.log(left);
+        console.log(alphGuess);
+
+}
+
+
+
+</script>
+</body>
+</html>

@@ -1,0 +1,8 @@
+The Psychic Game
+
+The app will pick a random letter
+You have to guess it
+If you get the correct letter, you get 1 point in win
+If you get the wrong letter, you get 1 point in loses
+    If you get the wrong letter, the guesses left goes down
+The app shows you what letter you've guessed before
